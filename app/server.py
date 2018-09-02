@@ -1,16 +1,16 @@
-from src import app
+from app import app
 from flask import render_template, request,jsonify
-import os
 import sendgrid
+import os
 
 @app.route("/")
-def home():
-    return render_template('index.html')
+def welcome():
+    return render_template("welcome.html")
 
 @app.route("/contact", methods=['POST'])
 def contact():
     if request.method == 'POST':
-        apikey = os.environ.get('SENDGRID_KEY')
+        apikey = os.environ['SENDGRID_KEY']
         sg = sendgrid.SendGridAPIClient(apikey=apikey)
         data = {
             "personalizations": [
@@ -36,8 +36,3 @@ def contact():
         }
         response = sg.client.mail.send.post(request_body=data)
         return jsonify({"status": str(response.status_code)})
-# Uncomment to add a new URL at /new
-
-# @app.route("/json")
-# def json_message():
-#     return jsonify(message="Hello World")

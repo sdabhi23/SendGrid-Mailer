@@ -1,6 +1,0 @@
-clusters:
-- alias: hasura
-  data: null
-  infra:
-    provider: hasura-free
-version: v1

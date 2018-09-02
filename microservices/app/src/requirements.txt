@@ -1,5 +1,0 @@
-flask
-requests
-gunicorn
-sendgrid
-# add new packages one per each line

@@ -1,0 +1,3 @@
+Flask
+sendgrid==5.4.1
+gunicorn

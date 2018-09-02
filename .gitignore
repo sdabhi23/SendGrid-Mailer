@@ -1,2 +1,1 @@
-.hasura
-migrations/*
+app/__pycache__

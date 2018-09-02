@@ -4,32 +4,43 @@ A starter project to deploy a mailing service for static sites using sendgrid an
 
 ## Clone & Deploy
 
-**Step 1:** Install the hasura CLI: [installation instructions](https://docs.hasura.io/0.15/manual/install-hasura-cli.html)
+**Step 1:** Install the heroku CLI: [installation instructions](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 
-**Step 2:** Create a hasura project on your machine
+**Step 2:** Create a heroku account and login in using the following command:
 ```bash
-$ # 1) Run the quickstart command
-$ hasura quickstart sdabhi23/sendgrid-mailer
+$ heroku login
+heroku: Enter your login credentials
+Email: xzy@abc.com
+Password: ********
 ```
 
-**Step 3:** Deploy the project to your free cluster!
+**Step 3:** Clone this repo
 ```bash
-$ # 2) Git add, commit & push to deploy to your cluster
-$ cd sendgrid-mailer
-$ git add . && git commit -m 'First commit'
-$ git push hasura master
+$ git clone https://github.com/sdabhi23/SendGrid-Mailer.git
+$ cd SendGrid-Mailer
 ```
 
-**Note:** Your **free cluster** got automatically created when you ran the `quickstart` command.
+**Step 4:** Create a new heroku app
+```bash
+$ heroku create
+Creating app... done, ⬢ morning-depths-68125
+https://morning-depths-68125.herokuapp.com/ | https://git.heroku.com/morning-depths-68125.git
+```
 
 ## Setup
 
 * Get a free account from https://signup.sendgrid.com/
+
 * Setup an API key ([Instructions](https://sendgrid.com/docs/User_Guide/Settings/api_keys.html#-Creating-an-API-key))
-* Add the key as a secret to your project using the following command:
+
+* Add the API key as a config var to your app using the following command:
 ```bash
-$  hasura secrets update sendgrid.key <your api key>
+$ heroku config:set SENDGRID_KEY=<your api key>
+Adding config vars and restarting myapp... done, v12
+SENDGRID_KEY: <your api key>
 ```
+Alternatively you can use any other method described at https://devcenter.heroku.com/articles/config-vars#managing-config-vars
+
 * Add your email address at line 20 in `server.py`
 ```python
 "to": [
@@ -38,7 +49,7 @@ $  hasura secrets update sendgrid.key <your api key>
     }
 ],
 ```
-* Push all the  changes to your cluster and your API will be up and running at `/contact` in a few minutes!
+* Push all the changes to your app using `$ git push heroku master` and your API will be up and running at `/contact` in a matter of minutes!
 
 ## Usage
 
