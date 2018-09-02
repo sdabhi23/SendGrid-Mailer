@@ -55,10 +55,11 @@ Alternatively you can use any other method described at https://devcenter.heroku
 
 * Using fetch in JavaScript
 ```JavaScript
-var url = 'https://app.<cluster name>.hasura-app.io/contact';
+var url = 'https://<app name>.herokuapp.com/contact';
+// For example: https://morning-depths-68125.herokuapp.com/
 var formData = new FormData();
 formData.append("name", "Tester");
-formData.append("email", "tester@hasura.io");
+formData.append("email", "tester@sdabhi23.io");
 formData.append("subject", "Testing");
 formData.append("message", "This is a test mail");
 
