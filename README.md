@@ -1,6 +1,8 @@
 # SendGrid Mailer
 
-A starter project to deploy a mailing service for static sites using sendgrid and python on Hasura k8s platform
+A starter project to deploy a mailing service for static sites using sendgrid and python on Heroku.
+
+> The code for deploying to Hasura cluster has been moved to [hasura branch](https://github.com/sdabhi23/SendGrid-Mailer/tree/hasura) and will no longer be maintained.
 
 ## Clone & Deploy
 
