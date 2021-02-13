@@ -14,10 +14,11 @@
             "altText": "E-Mail API logo"
         }
     },
-    "schemes": [
-        "http"
+    "servers": [
+        {
+            "url": "http://localhost"
+        }
     ],
-    "host": "localhost:8000",
     "externalDocs": {
         "description": "GitHub Repo",
         "url": "https://github.com/sdabhi23/SendGrid-Mailer"
