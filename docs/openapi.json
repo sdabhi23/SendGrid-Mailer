@@ -1,0 +1,169 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "E-Mail API",
+        "description": "An e-mail sending API for static sites using SendGrid and Python on Heroku.\nIt now requires setting a safety token inorder to avoid unauthorised usage and spam messages.\n\nIcons by [Icons8](https://icons8.com/)",
+        "version": "1.0.0",
+        "license": {
+            "name": "MIT",
+            "url": "https://github.com/sdabhi23/SendGrid-Mailer/blob/master/LICENSE"
+        },
+        "x-logo": {
+            "url": "./important-mail.png",
+            "backgroundColor": "#FFFFFF",
+            "altText": "E-Mail API logo"
+        }
+    },
+    "schemes": [
+        "http"
+    ],
+    "host": "localhost:8000",
+    "externalDocs": {
+        "description": "GitHub Repo",
+        "url": "https://github.com/sdabhi23/SendGrid-Mailer"
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "tags": [
+                    "default"
+                ],
+                "summary": "Welcome",
+                "operationId": "welcome__get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/contact": {
+            "post": {
+                "tags": [
+                    "default"
+                ],
+                "summary": "Contact",
+                "operationId": "contact_contact_post",
+                "parameters": [
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "Origin",
+                            "type": "string"
+                        },
+                        "name": "origin",
+                        "in": "header"
+                    },
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "X-Origin-Token",
+                            "type": "string"
+                        },
+                        "name": "x-origin-token",
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Body_contact_contact_post"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Body_contact_contact_post": {
+                "title": "Body_contact_contact_post",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "title": "Name",
+                        "type": "string"
+                    },
+                    "email": {
+                        "title": "Email",
+                        "type": "string"
+                    },
+                    "subject": {
+                        "title": "Subject",
+                        "type": "string"
+                    },
+                    "message": {
+                        "title": "Message",
+                        "type": "string"
+                    }
+                }
+            },
+            "HTTPValidationError": {
+                "title": "HTTPValidationError",
+                "type": "object",
+                "properties": {
+                    "detail": {
+                        "title": "Detail",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        }
+                    }
+                }
+            },
+            "ValidationError": {
+                "title": "ValidationError",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "type": "object",
+                "properties": {
+                    "loc": {
+                        "title": "Location",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "msg": {
+                        "title": "Message",
+                        "type": "string"
+                    },
+                    "type": {
+                        "title": "Error Type",
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
