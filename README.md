@@ -1,6 +1,8 @@
 # Static Site Mailer
 
-An e-mail sending API for static sites using sendgrid and python on Heroku. It now requires setting a safety token inorder to avoid unauthorised usage and spam messages.
+An e-mail sending API for static sites using SendGrid and Python on Heroku. It now requires setting a safety token inorder to avoid unauthorised usage and spam messages.
+
+Icons by [Icons8](https://icons8.com/)
 
 ## Clone & Deploy
 
