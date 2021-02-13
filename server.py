@@ -4,15 +4,8 @@ from sendgrid.helpers.mail import Mail
 import sendgrid
 import os
 
-tags_metadata = [
-    {
-        "name": "default",
-        "description": "Do not try to hit this api from anywhere, it won't work 😉",
-    }
-]
-
 app = FastAPI(title="E-Mail API", description="An API which uses SendGrid to send me mails about the forms submitted on my website!", version="1.0.0",
-              docs_url=None, redoc_url="/docs", openapi_tags=tags_metadata)
+              docs_url=None, redoc_url="/docs")
 
 apikey = os.environ['SENDGRID_KEY']
 sg = sendgrid.SendGridAPIClient(apikey)
