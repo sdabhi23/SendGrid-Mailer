@@ -1,3 +1,4 @@
-Flask
-sendgrid==5.4.1
-gunicorn
+fastapi
+sendgrid
+python-multipart
+uvicorn[standard]
